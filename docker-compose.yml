@@ -69,6 +69,10 @@ services:
     command:
       - "-c"
       - "n8n import:credentials --separate --input=/backup/credentials && n8n import:workflow --separate --input=/backup/workflows"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=n8nloacalcng  # Ensure the correct database name is specified here
     volumes:
       - ./n8n/backup:/backup
     depends_on:
