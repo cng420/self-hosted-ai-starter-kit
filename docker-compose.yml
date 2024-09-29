@@ -85,6 +85,10 @@ services:
     restart: unless-stopped
     ports:
       - 5678:5678
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=n8nloacalcng  # Ensure the correct database name is specified here
     volumes:
       - n8n_storage:/home/node/.n8n
       - ./n8n/backup:/backup
