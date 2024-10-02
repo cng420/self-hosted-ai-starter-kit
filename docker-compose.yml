@@ -92,6 +92,8 @@ services:
       - n8n_storage:/home/node/.n8n
       - ./n8n/backup:/backup
       - ./shared:/data/shared
+      - ~/documentin:/home/ryan-ballantyne/LLMs/Files
+
     depends_on:
       postgres:
         condition: service_healthy
