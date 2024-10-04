@@ -9,7 +9,6 @@ networks:
 
 x-n8n: &service-n8n
   image: n8nio/n8n:1.61.0
-  networks: ['demo']
   environment:
     - DB_TYPE=postgresdb
     - DB_POSTGRESDB_HOST=postgres
@@ -94,7 +93,6 @@ services:
       - ./n8n/backup:/backup
       - ./shared:/data/shared
       - ./process:/data/process
-
     depends_on:
       postgres:
         condition: service_healthy
