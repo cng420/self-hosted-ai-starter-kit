@@ -81,6 +81,7 @@ services:
   n8n:
     <<: *service-n8n
     container_name: n8n
+     network_mode: host  # Use host networking for n8n to communicate with host services via localhost
     restart: unless-stopped
     ports:
       - 5678:5678
